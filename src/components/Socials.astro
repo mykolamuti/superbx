@@ -1,0 +1,79 @@
+---
+/*
+ * Social media icons for the SUPERB landing page. Instead of using
+ * inline SVGs, we import PNG assets for each platform. Each entry
+ * contains a reference to the imported image and the corresponding
+ * link. When adding new icons, simply import the PNG file at the
+ * top of this file and append to the socials array with its URL.
+ */
+import { Picture } from 'astro:assets';
+import FarcasterIcon from '../assets/farcaster.png';
+import XIcon from '../assets/x.png';
+import ClankerIcon from '../assets/clanker.png';
+import DexscreenerIcon from '../assets/dexscreener.png';
+import SuperfluidIcon from '../assets/superfluid.png';
+
+interface Social {
+    icon: any;
+    link: string;
+    title?: string;
+    alt: string;
+}
+
+const socials: Social[] = [
+    {
+        icon: FarcasterIcon,
+        link: 'https://farcaster.xyz/superbx',
+        title: 'Follow on Farcaster',
+        alt: 'Farcaster'
+    },
+    {
+        icon: XIcon,
+        link: 'https://x.com/SUPERBxBase',
+        title: 'Visit X (formerly Twitter)',
+        alt: 'X'
+    },
+    {
+        icon: ClankerIcon,
+        link: '#',
+        title: 'View on Clanker',
+        alt: 'Clanker'
+    },
+    {
+        icon: DexscreenerIcon,
+        link: '#',
+        title: 'View on Dex Screener',
+        alt: 'Dex Screener'
+    },
+    {
+        icon: SuperfluidIcon,
+        link: '#',
+        title: 'View on Superfluid',
+        alt: 'Superfluid'
+    }
+];
+
+---
+
+<!-- Start: Social Links -->
+<div class="flex flex-wrap gap-3 mt-6 justify-between">
+    {socials.map(social =>
+        <a
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={social.title}
+            class="flex items-center justify-center w-10 h-10 rounded-lg bg-black text-gray-100 transition-all duration-150 border border-gray-600 hover:bg-primary hover:-translate-y-0.5"
+        >
+            <Picture
+                src={social.icon}
+                formats={['png', 'webp']}
+                width={20}
+                height={20}
+                alt={social.alt}
+                class="w-5 h-5 object-contain"
+            />
+        </a>
+    )}
+</div>
+<!-- End: Social Links -->

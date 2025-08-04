@@ -1,0 +1,28 @@
+---
+import Socials from './Socials.astro';
+---
+
+<div>
+
+    <!-- Start: Terminal message -->
+    <div class="mt-6 bg-black rounded-lg p-4 border border-gray-600 text-xs">
+        <div class="flex items-center mb-2">
+            <span class="text-primary mr-2">$</span>
+            <!-- Display a contextual command instead of a generic one -->
+            <span class="text-gray-100">npx stream</span>
+        </div>
+        <div class="mt-2 text-gray-400">
+            Initializing...
+            <br />
+            Ready to stream.
+            <br />
+            Executing AI strategy
+        </div>
+    </div>
+    <!-- End: Terminal message -->
+
+    <!-- Start: Social Links -->
+    <Socials />
+    <!-- End: Social Links -->
+
+</div>

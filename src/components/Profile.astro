@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import Logo from '../assets/superb-logo.png';
+
+/*
+ * This component has been repurposed for the SUPERB landing page.
+ * It no longer shows a developer profile, but instead displays the
+ * project logo and key information about the protocol. The logo is
+ * loaded from the assets folder and rendered using the `Picture`
+ * component provided by Astro to take advantage of image optimization.
+ */
+---
+
+<div class="flex flex-col gap-6 text-left">
+    <!-- Logo and basic information -->
+    <div class="flex flex-row gap-4 items-center">
+        <Picture
+            src={Logo}
+            formats={['webp', 'png']}
+            width={96}
+            height={96}
+            alt={'SUPERB protocol logo'}
+            title={'SUPERB Protocol'}
+            class="w-24 h-24 rounded-xl object-contain border-2 border-primary"
+        />
+        <div>
+            <!-- Project name -->
+            <h1 class="text-2xl font-extrabold mb-1 text-text-primary">SUPERB</h1>
+            <!-- Launch date and tokenomics info -->
+            <p class="text-sm mb-1 text-gray-400">Live Aug 15</p>
+            <p class="text-sm text-gray-400">Tokenomics: TBA</p>
+        </div>
+    </div>
+
+    <!-- Brief description of the protocol -->
+    <p class="text-sm leading-relaxed text-gray-400">
+        SUPERB is the first AI-native hedge fund designed entirely on‑chain and built for the Base ecosystem. At its core
+        is a self‑adjusting agent that analyzes token launches, liquidity shifts, and behavioural patterns across the
+        network, reallocating capital in real time without human intervention. Users participate by vesting
+        <span class="text-primary font-medium">$SUPERB</span>, unlocking a continuous stream of <span class="text-primary font-medium">$SUPERBx</span>, a
+        Superfluid‑powered yield token that reflects their share of protocol performance. No dashboards to micromanage.
+        No active trades to track. Just transparent, programmable investing built for the next generation of onchain
+        users.
+    </p>
+
+    <!-- Attribution -->
+    <p class="text-xs mt-4 text-gray-500">
+        Made by Mutia with love
+    </p>
+</div>

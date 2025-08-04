@@ -1,0 +1,72 @@
+---
+/*
+ * This component renders information about the key tokens used in the
+ * SUPERB protocol. Each token card consists of a name, a
+ * description, and a link to an external resource. The layout is
+ * responsive and based off the project cards from the original
+ * template. Feel free to add or remove entries from the `tokens`
+ * array below as the protocol evolves.
+ */
+
+interface Token {
+    name: string;
+    description: string;
+    link: {
+        url: string;
+        title: string;
+    };
+}
+
+const tokens: Token[] = [
+    {
+        name: 'SUPERB Token',
+        description:
+            'Governance and utility token of the SUPERB protocol. Holders can vest $SUPERB to receive SUPERBx streams and may participate in protocol decisions in the future.',
+        link: {
+            url: '#',
+            title: 'On Clanker (TBA)',
+        },
+    },
+    {
+        name: 'SUPERBx Token',
+        description:
+            'A non‑transferable yield stream token issued 1:1 when $SUPERB is vested. Used to track real‑time onchain returns, no active management required.',
+        link: {
+            url: 'https://basescan.org/token/0x19fb027bE63F75D3057392293C1ce80E8E67BAC2#code',
+            title: 'On Basescan',
+        },
+    },
+    {
+        name: 'SUPERBx Token (Superfluid)',
+        description:
+            'SUPERBx is streamed using Superfluid’s smart contract framework, enabling continuous, gasless reward flow for vesters. Built directly on Superfluid’s protocol.',
+        link: {
+            url: 'https://app.superfluid.org/token/base/0x19fb027be63f75d3057392293c1ce80e8e67bac2',
+            title: 'On Superfluid',
+        },
+    },
+];
+---
+
+<div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {tokens.map(token =>
+            <div class="flex flex-col justify-center items-start border border-gray-700 rounded-lg p-4 bg-black">
+                <h3 class="text-xl font-semibold text-white mb-2">
+                    {token.name}
+                </h3>
+                <p class="text-gray-400">
+                    {token.description}
+                </p>
+                <a
+                    href={token.link.url}
+                    title={token.link.title}
+                    target="_blank"
+                    class="w-full px-4 py-2.5 mt-4 text-center border border-gray-600 rounded-lg hover:text-primary hover:border-primary"
+                >
+                    {token.link.title}
+                </a>
+            </div>
+        )}
+    </div>
+</div>
