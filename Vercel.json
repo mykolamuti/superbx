@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "superbx.app"
+        }
+      ],
+      "destination": "https://www.superbx.app/:1",
+      "permanent": true
+    }
+  ]
+}
